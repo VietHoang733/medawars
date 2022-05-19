@@ -2,20 +2,32 @@ import React from "react";
 import styled from "styled-components";
 
 import background from "../../../public/images/backgrounds/bg_2.png";
-import cryptomedaLogo from "../../../public/images/icons/cryptomeda_logo_blurred.jpg";
+import cryptomedaLogo from "../../../public/images/icons/cryptomeda_logo_blurred.png";
 
 const Container = styled.main`
   background-image: url(${background.src});
   background-repeat: no-repeat;
   background-size: cover;
   height: fit-content;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(20%, -50%);
+  }
 `;
 
 const Content = styled.section`
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 80px;
+  padding: 80px 40px 0;
   color: #fff;
+
+  @media only screen and (max-width: 400px) {
+    padding: 40px 40px 0;
+  }
 `;
 
 const HeadingWrapper = styled.div`
@@ -30,6 +42,28 @@ const HeadingWrapper = styled.div`
     font-size: 30px;
     color: #f3b809;
   }
+
+  @media only screen and (max-width: 800px) {
+    h1 {
+      font-size: 48px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    border-left: 4px solid #fff;
+
+    h1 {
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+  }
 `;
 
 const TextWrapper = styled.article`
@@ -41,6 +75,16 @@ const TextWrapper = styled.article`
   div {
     margin-right: 20px;
   }
+
+  @media only screen and (max-width: 800px) {
+    width: 80%;
+    font-size: 20px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+    font-size: 16px;
+  }
 `;
 
 const Footer = styled.footer`
@@ -49,6 +93,7 @@ const Footer = styled.footer`
 
   p {
     font-family: "Archivo", sans-serif;
+    font-size: 14px;
   }
 `;
 
@@ -78,6 +123,7 @@ const CompanyBlock = () => {
           <p>All rights reserved 2022</p>
         </Footer>
       </Content>
+      <img src={cryptomedaLogo.src} alt="cryptomeda-logo" />
     </Container>
   );
 };
